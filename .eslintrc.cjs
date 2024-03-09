@@ -14,5 +14,14 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
+    '@typescript-eslint/array-type': ['error', { default: 'array' }],
+    '@typescript-eslint/typedef': [
+      'error',
+      {
+        parameter: true,
+        propertyDeclaration: true,
+      },
+    ],
+    '@typescript-eslint/method-signature-style': 'error',
   },
 };
