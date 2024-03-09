@@ -1,0 +1,26 @@
+#root *,
+#root::before,
+#root::after {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  overflow: auto;
+  margin: 0;
+  background-color: #181618;
+  color: #FFFFFF;
+  font-family: sans-serif;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
