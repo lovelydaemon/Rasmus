@@ -1,0 +1,10 @@
+import { Module } from '@nestjs/common';
+import { RssService } from './rss.service';
+import { RssController } from './rss.controller';
+
+@Module({
+  controllers: [RssController],
+  providers: [RssService],
+  exports: [RssService],
+})
+export class RssModule {}

@@ -6,6 +6,8 @@ import Home from './routes/Home';
 import Discover from './routes/Discover';
 import Layout from './routes/Layout';
 import NotFound from './routes/NotFound';
+import { Provider } from 'react-redux';
+import store from './app/store';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +33,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>,
 );

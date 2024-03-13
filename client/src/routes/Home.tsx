@@ -1,8 +1,7 @@
 export default function Home() {
   return (
     <div>
-      <h1>Today</h1>
-      <p>The insights you need to keep ahead</p>
+      <h1>All Personal Feeds</h1>
     </div>
   );
 }
