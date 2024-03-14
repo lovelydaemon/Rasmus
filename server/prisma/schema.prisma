@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Channel {
+  id        String   @id @default(uuid())
+  title     String
+  link      String   @unique
+  shortLink String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  posts     Post[]
+  following Boolean  @default(false)
+}
+
+model Post {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  link        String   @unique
+  date        DateTime
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  Channel     Channel  @relation(fields: [channelId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  channelId   String
+}
