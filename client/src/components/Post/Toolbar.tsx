@@ -32,19 +32,35 @@ const size = 20;
 export default function Toolbar() {
   return (
     <div css={toolbarCss.wrapper}>
-      <button css={toolbarCss.button} type='button' aria-label='Read later'>
+      <button
+        css={toolbarCss.button}
+        type='button'
+        aria-label='Read later'
+        title='Read later'
+      >
         <BookmarkIcon size={size} />
       </button>
-      <button css={toolbarCss.button} type='button' aria-label='Save to board'>
+      <button
+        css={toolbarCss.button}
+        type='button'
+        aria-label='Save to board'
+        title='Save to board'
+      >
         <StarIcon size={size} />
       </button>
-      <button css={toolbarCss.button} type='button' aria-label='Mark as unread'>
+      <button
+        css={toolbarCss.button}
+        type='button'
+        aria-label='Mark as unread'
+        title='Mark as unread'
+      >
         <CheckIcon size={size} />
       </button>
       <button
         css={toolbarCss.button}
         type='button'
         aria-label='Mark as read and hide'
+        title='Mark as read and hide'
       >
         <CloseIcon size={size} />
       </button>

@@ -1,5 +1,5 @@
 import { IPostWithChannelData } from '@/app/types';
-import Post from '@/components/Post/Post';
+import PostList from '@/components/PostList/PostList';
 import { useEffect, useState } from 'react';
 
 export default function Home() {
@@ -17,13 +17,7 @@ export default function Home() {
     <div>
       <h1>All Personal Feeds</h1>
       <br />
-      {data?.length ? (
-        <div>
-          {data.map((post) => (
-            <Post key={post.id} post={post} />
-          ))}
-        </div>
-      ) : null}
+      <PostList data={data} />
     </div>
   );
 }

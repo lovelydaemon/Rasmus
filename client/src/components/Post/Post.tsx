@@ -6,9 +6,6 @@ import { IPostWithChannelData } from '@/app/types';
 
 const cardCss = {
   wrapper: css({
-    display: 'flex',
-    gap: '16px',
-    backgroundColor: colors.darkGray,
     borderRadius: '4px',
     padding: '16px',
   }),
