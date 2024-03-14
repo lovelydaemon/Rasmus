@@ -1,11 +1,16 @@
+import { postApi } from '@/services/post';
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice.ts';
+import { setupListeners } from '@reduxjs/toolkit/query';
 
 const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    [postApi.reducerPath]: postApi.reducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(postApi.middleware),
 });
+
+setupListeners(store.dispatch);
 
 export default store;
 

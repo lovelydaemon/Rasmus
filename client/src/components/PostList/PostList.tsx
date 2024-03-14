@@ -2,7 +2,7 @@ import { IChannelWithPostsData } from '@/app/types';
 import Post from '@/components/Post/Post';
 
 interface Props {
-  data: IChannelWithPostsData[] | null;
+  data: IChannelWithPostsData[] | undefined;
 }
 
 export default function PostList({ data }: Props) {
