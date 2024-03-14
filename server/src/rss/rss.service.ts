@@ -8,7 +8,12 @@ export class RssService {
   private readonly parser = new Parser();
 
   async parseRssUrl(url: string) {
-    const parsed = await this.parser.parseURL(url);
+    let parsed: Parser.Output<{ [key: string]: unknown }>;
+    try {
+      parsed = await this.parser.parseURL(url);
+    } catch (err) {
+      return null;
+    }
 
     parsed.items = parsed.items.map((item) => {
       try {
