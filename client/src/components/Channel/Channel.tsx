@@ -1,3 +1,4 @@
+import { ChannelData } from '@/pages/Discover';
 import { colors } from '@/styles/colors';
 import { css } from '@emotion/react';
 
@@ -51,20 +52,11 @@ const channelCss = {
     },
   }),
 };
-
 interface Props {
-  title?: string;
-  link?: string;
+  channel: ChannelData;
 }
-
-export default function Channel({ title = '', link = '' }: Props) {
-  let shortLink = '';
-  try {
-    shortLink = new URL(link).hostname.replace('www.', '');
-  } catch {
-    shortLink = '';
-  }
-
+export default function Channel({ channel }: Props) {
+  const { title, link, shortLink } = channel;
   return (
     <div css={channelCss.wrapper}>
       <div css={channelCss.header.wrapper}>

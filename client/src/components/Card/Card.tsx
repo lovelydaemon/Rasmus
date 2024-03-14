@@ -2,6 +2,7 @@ import { colors } from '@/styles/colors';
 import { css } from '@emotion/react';
 import Toolbar from './Toolbar';
 import { useState } from 'react';
+import { Post } from '@/pages/Discover';
 
 const cardCss = {
   wrapper: css({
@@ -50,23 +51,17 @@ const cardCss = {
   },
 };
 
-interface Item {
-  title: string;
-  pubDate: string;
-  link: string;
-  isoDate: string;
-  guid: string;
-  content: string;
-  contentSnippet: string;
-}
-
 interface Props {
   author: string;
   authorLink: string;
-  item: Item;
+  post: Post;
 }
-export default function Card({ item, author, authorLink }: Props) {
+
+export default function Card({ post, author, authorLink }: Props) {
   const [showToolbar, setShowToolbar] = useState(false);
+
+  const { title, description, link, date } = post;
+
   return (
     <article
       onMouseEnter={() => setShowToolbar(true)}
@@ -82,11 +77,11 @@ export default function Card({ item, author, authorLink }: Props) {
         >
           <a
             css={cardCss.content.titleLink}
-            href={item.link}
+            href={link}
             target='_blank'
             rel='noopener noreferrer'
           >
-            {item.title}
+            {title}
           </a>
         </div>
 
@@ -101,10 +96,10 @@ export default function Card({ item, author, authorLink }: Props) {
           >
             {author}
           </a>{' '}
-          / <span>{item.pubDate}</span>
+          / <span>{date}</span>
         </div>
 
-        <div css={cardCss.content.description}>{item.content}</div>
+        <div css={cardCss.content.description}>{description}</div>
       </div>
     </article>
   );

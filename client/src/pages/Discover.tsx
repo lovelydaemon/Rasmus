@@ -3,27 +3,33 @@ import Channel from '@/components/Channel/Channel';
 import Search from '@/components/Search/Search';
 import { useState } from 'react';
 
-interface ChannelData {
-  description: string;
-  generator: string;
-  items: Item[];
-  language: string;
-  link: string;
-  title: string;
-  ttl: string;
+interface SearchData {
+  channel: ChannelData;
+  posts: Post[];
 }
-interface Item {
+
+export interface ChannelData {
+  id: string;
   title: string;
-  pubDate: string;
   link: string;
-  isoDate: string;
-  guid: string;
-  content: string;
-  contentSnippet: string;
+  shortLink: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface Post {
+  id: string;
+  title: string;
+  description: string;
+  link: string;
+  date: string;
+  createdAt: string;
+  updatedAt: string;
+  channelId: string;
 }
 
 export default function Discover() {
-  const [data, setData] = useState<ChannelData | null>(null);
+  const [data, setData] = useState<SearchData | null>(null);
   function handleSubmit(data: { url: string }) {
     window
       .fetch('http://localhost:3001/api/', {
@@ -46,17 +52,17 @@ export default function Discover() {
       <Search onSubmit={handleSubmit} />
       <br />
       <br />
-      {data && <Channel title={data?.title} link={data?.link} />}
+      {data && <Channel channel={data.channel} />}
       <br />
       <br />
-      {data && data.items.length ? (
+      {data && data.posts.length ? (
         <div>
-          {data.items.map((item) => (
+          {data.posts.map((post) => (
             <Card
-              key={item.link}
-              item={item}
-              author={data.title}
-              authorLink={data.link}
+              key={post.id}
+              post={post}
+              author={data.channel.title}
+              authorLink={data.channel.link}
             />
           ))}
         </div>
