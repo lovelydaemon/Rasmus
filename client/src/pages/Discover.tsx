@@ -26,7 +26,7 @@ export default function Discover() {
   const [data, setData] = useState<ChannelData | null>(null);
   function handleSubmit(data: { url: string }) {
     window
-      .fetch('http://localhost:3001/', {
+      .fetch('http://localhost:3001/api/', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {

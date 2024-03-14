@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Home from './routes/Home';
-import Discover from './routes/Discover';
-import Layout from './routes/Layout';
-import NotFound from './routes/NotFound';
+import Home from './pages/Home';
+import Discover from './pages/Discover';
+import Layout from './pages/Layout';
+import NotFound from './pages/NotFound';
 import { Provider } from 'react-redux';
 import store from './app/store';
 
