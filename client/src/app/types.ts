@@ -9,6 +9,7 @@ export interface IChannelData {
   shortLink: string;
   createdAt: string;
   updatedAt: string;
+  following: boolean;
 }
 
 export interface IPostData {
@@ -22,6 +23,6 @@ export interface IPostData {
   channelId: string;
 }
 
-export interface IPostWithChannelData extends IPostData {
-  Channel: IChannelData;
+export interface IChannelWithPostsData extends IPostData {
+  posts: IPostData[];
 }

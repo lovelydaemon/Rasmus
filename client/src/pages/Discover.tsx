@@ -16,9 +16,18 @@ export default function Discover() {
       })
       .then((res) => res.json())
       .then((resData) => {
-        console.log(resData);
         setData(resData);
       });
+  }
+
+  function handleToggleFollow(channelId: string) {
+    window
+      .fetch(`http://localhost:3001/api/channels/${channelId}/follow`, {
+        method: 'PATCH',
+      })
+      .then((res) => res.json())
+      .then((data) => setData({ channel: data }))
+      .catch((err) => console.log(err));
   }
 
   return (
@@ -26,7 +35,9 @@ export default function Discover() {
       <h1>Follow your favorite websites</h1>
       <Search onSubmit={handleSubmit} />
       <br />
-      {data && <Channel channel={data.channel} />}
+      {data && (
+        <Channel channel={data.channel} onToggleFollow={handleToggleFollow} />
+      )}
     </div>
   );
 }
