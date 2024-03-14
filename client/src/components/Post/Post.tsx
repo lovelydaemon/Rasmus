@@ -2,7 +2,7 @@ import { colors } from '@/styles/colors';
 import { css } from '@emotion/react';
 import Toolbar from './Toolbar';
 import { useState } from 'react';
-import { Post } from '@/pages/Discover';
+import { IPostWithChannelData } from '@/app/types';
 
 const cardCss = {
   wrapper: css({
@@ -52,16 +52,14 @@ const cardCss = {
 };
 
 interface Props {
-  author: string;
-  authorLink: string;
-  post: Post;
+  post: IPostWithChannelData;
 }
 
-export default function Card({ post, author, authorLink }: Props) {
+export default function Post({ post }: Props) {
   const [showToolbar, setShowToolbar] = useState(false);
 
-  const { title, description, link, date } = post;
-
+  const { title, description, link, date, Channel } = post;
+  const { link: authorLink, title: author } = Channel;
   return (
     <article
       onMouseEnter={() => setShowToolbar(true)}

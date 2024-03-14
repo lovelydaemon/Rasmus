@@ -1,4 +1,4 @@
-import { ChannelData } from '@/pages/Discover';
+import { IChannelData } from '@/app/types';
 import { colors } from '@/styles/colors';
 import { css } from '@emotion/react';
 
@@ -53,7 +53,7 @@ const channelCss = {
   }),
 };
 interface Props {
-  channel: ChannelData;
+  channel: IChannelData;
 }
 export default function Channel({ channel }: Props) {
   const { title, link, shortLink } = channel;
