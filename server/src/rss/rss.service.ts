@@ -6,7 +6,7 @@ import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class RssService {
-  constructor(private prisma: PrismaService) {}
+  constructor(private readonly prisma: PrismaService) {}
 
   private readonly parser = new Parser();
 
@@ -64,12 +64,6 @@ export class RssService {
       skipDuplicates: true,
     });
 
-    const channelPosts = await this.prisma.post.findMany({
-      where: {
-        channelId: channel.id,
-      },
-    });
-
-    return { channel: channel, posts: channelPosts };
+    return { channel };
   }
 }
