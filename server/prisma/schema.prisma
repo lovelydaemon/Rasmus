@@ -15,6 +15,7 @@ model Channel {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   posts     Post[]
+  following Boolean  @default(false)
 }
 
 model Post {

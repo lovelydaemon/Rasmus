@@ -10,14 +10,15 @@ export class PostsService {
   }
 
   async findAll() {
-    // не очень вариант, к каждому посту добавится много лишней инфы
-    const posts = await this.prisma.post.findMany({
+    const channels = await this.prisma.channel.findMany({
+      where: {
+        following: true,
+      },
       include: {
-        Channel: true,
+        posts: true,
       },
     });
-
-    return posts;
+    return channels;
   }
 
   findOne(id: number) {
