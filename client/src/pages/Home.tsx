@@ -1,9 +1,9 @@
-import { IPostWithChannelData } from '@/app/types';
+import { IChannelWithPostsData } from '@/app/types';
 import PostList from '@/components/PostList/PostList';
 import { useEffect, useState } from 'react';
 
 export default function Home() {
-  const [data, setData] = useState<IPostWithChannelData[] | null>(null);
+  const [data, setData] = useState<IChannelWithPostsData[] | null>(null);
 
   useEffect(() => {
     window
