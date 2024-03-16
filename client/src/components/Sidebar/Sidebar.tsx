@@ -1,43 +1,14 @@
-import { colors } from '@/styles/colors';
-import { css } from '@emotion/react';
+import { clsx } from 'clsx';
 import { Home as HomeIcon, Rss as RssIcon } from 'react-feather';
 import { NavLinkProps, NavLink as RRDNavLink } from 'react-router-dom';
 
-const sidebarCss = {
-  wrapper: css({
-    position: 'fixed',
-    zIndex: '10',
-    top: '0',
-    left: '0',
-    width: '64px',
-    borderRight: `1px solid ${colors.darkGray}`,
-    height: '100%',
-    padding: '16px 0',
-  }),
-  navLink: css({
-    display: 'block',
-    padding: '8px',
-    transition: 'color 0.3s ease-out',
-    ':link, :visited': {
-      color: colors.lightGray,
-    },
-    ':hover, :active': {
-      color: colors.white,
-    },
-  }),
-  ul: css({
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-  }),
-};
+import classes from './Sidebar.module.scss';
 
 export default function Sidebar() {
   return (
-    <div css={sidebarCss.wrapper}>
+    <div className={classes['sidebar']}>
       <nav>
-        <ul css={sidebarCss.ul}>
+        <ul className={classes['sidebar__list']}>
           <li>
             <NavLink aria-label='Home' to='/my'>
               <HomeIcon />
@@ -57,8 +28,12 @@ export default function Sidebar() {
 function NavLink(props: NavLinkProps) {
   return (
     <RRDNavLink
-      css={sidebarCss.navLink}
-      style={({ isActive }) => (isActive ? { color: colors.brand } : undefined)}
+      className={({ isActive }) =>
+        clsx(
+          classes['sidebar__list-item'],
+          isActive && classes['sidebar__list-item_active'],
+        )
+      }
       {...props}
     />
   );

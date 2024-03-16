@@ -1,0 +1,26 @@
+.main {
+  margin-left: 64px;
+}
+
+.main__content {
+  padding: 0 24px;
+  margin: 0 auto;
+}
+
+@media (min-width: 544px) {
+  .main__content {
+    max-width: 576px;
+  }
+}
+
+@media (min-width: 768px) {
+  .main__content {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 988px) {
+  .main__content {
+    max-width: 900px;
+  }
+}

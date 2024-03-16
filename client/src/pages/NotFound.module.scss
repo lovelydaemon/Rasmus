@@ -1,0 +1,37 @@
+.container {
+  margin-top: 12rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 400px;
+  text-align: center;
+}
+
+.h2 {
+  font-size: 20px;
+}
+
+.error {
+  color: $color-lightGray;
+  margin-top: 24px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button__link {
+  padding: 12px 18px;
+  background: $color-brand;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  color: $color-white;
+  text-transform: uppercase;
+  transition: opacity 0.3s ease-out;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

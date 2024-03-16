@@ -1,0 +1,11 @@
+.spinner {
+  width: var(--spinner-size, 24px);
+  height: var(--spinner-size, 24px);
+  border-style: solid;
+  border-width: var(--spinner-border-width, 3px);
+  border-color: var(--spinner-border-color, #ffffff);
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  animation: rotation 1s linear infinite;
+}

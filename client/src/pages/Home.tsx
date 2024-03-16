@@ -1,5 +1,5 @@
-import PostList from '@/components/PostList/PostList';
 import Loading from '@/components/Loading/Loading';
+import PostList from '@/components/PostList/PostList';
 import { useGetPostsQuery } from '@/services/post';
 
 export default function Home() {

@@ -1,52 +1,9 @@
-import { colors } from '@/styles/colors';
-import { css } from '@emotion/react';
-import Toolbar from './Toolbar';
 import { useState } from 'react';
+
 import { IPostData } from '@/app/types';
 
-const cardCss = {
-  wrapper: css({
-    borderRadius: '4px',
-    padding: '16px',
-  }),
-  image: css({
-    width: '130px',
-    height: '78px',
-    backgroundColor: colors.gray,
-    borderRadius: '4px',
-  }),
-  content: {
-    wrapper: css({
-      fontSize: '13px',
-      lineHeight: '18px',
-      wordBreak: 'break-word',
-      color: colors.lightGray,
-    }),
-    titleLink: css({
-      fontSize: '16px',
-      fontWeight: '700',
-      ':link, :visited': {
-        color: colors.white,
-      },
-    }),
-    authorLink: css({
-      ':link, :visited': {
-        color: colors.lightGray,
-      },
-      ':hover,:active': {
-        color: colors.white,
-        textDecoration: 'underline',
-      },
-    }),
-    description: css({
-      display: '-webkit-box',
-      WebkitLineClamp: '3',
-      WebkitBoxOrient: 'vertical',
-      overflow: 'hidden',
-      marginTop: '8px',
-    }),
-  },
-};
+import classes from './Post.module.scss';
+import Toolbar from './Toolbar';
 
 interface Props {
   author: string;
@@ -60,22 +17,17 @@ export default function Post({ post, author, authorLink }: Props) {
   const { title, description, link, date } = post;
   return (
     <article
+      className={classes['post']}
       onMouseEnter={() => setShowToolbar(true)}
       onMouseLeave={() => setShowToolbar(false)}
-      css={cardCss.wrapper}
     >
-      <div css={cardCss.content.wrapper}>
-        <div
-          css={{
-            display: 'inline-block',
-            width: '70%',
-          }}
-        >
+      <div className={classes['post__content']}>
+        <div className={classes['post__header']}>
           <a
-            css={cardCss.content.titleLink}
+            className={classes['post__title']}
             href={link}
-            target='_blank'
             rel='noopener noreferrer'
+            target='_blank'
           >
             {title}
           </a>
@@ -83,19 +35,19 @@ export default function Post({ post, author, authorLink }: Props) {
 
         {showToolbar && <Toolbar />}
 
-        <div css={{ marginTop: '8px' }}>
+        <div className={classes['post__info']}>
           <a
-            css={cardCss.content.authorLink}
+            className={classes['post__link']}
             href={authorLink}
-            target='_blank'
             rel='noopener noreferrer'
+            target='_blank'
           >
             {author}
           </a>{' '}
           / <span>{date}</span>
         </div>
 
-        <div css={cardCss.content.description}>{description}</div>
+        <div className={classes['post__description']}>{description}</div>
       </div>
     </article>
   );
