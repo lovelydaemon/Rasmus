@@ -3,24 +3,24 @@ export interface ISearchData {
 }
 
 export interface IChannelData {
+  createdAt: string;
+  following: boolean;
   id: string;
-  title: string;
   link: string;
   shortLink: string;
-  createdAt: string;
+  title: string;
   updatedAt: string;
-  following: boolean;
 }
 
 export interface IPostData {
-  id: string;
-  title: string;
-  description: string;
-  link: string;
-  date: string;
-  createdAt: string;
-  updatedAt: string;
   channelId: string;
+  createdAt: string;
+  date: string;
+  description: string;
+  id: string;
+  link: string;
+  title: string;
+  updatedAt: string;
 }
 
 export interface IChannelWithPostsData extends IPostData {

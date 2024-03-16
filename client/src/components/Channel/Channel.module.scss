@@ -1,0 +1,36 @@
+.channel {
+  border: 1px solid $color-gray;
+  border-radius: 4px;
+  padding: 16px;
+}
+
+.channel__link {
+  font-size: 13px;
+  line-height: 18px;
+
+  &:link,
+  &:visited {
+    color: $color-lightGray;
+  }
+
+  &:hover,
+  &:active {
+    color: $color-white;
+    text-decoration: underline;
+  }
+}
+
+.header {
+  display: flex;
+}
+
+.header__title {
+  font-weight: 700;
+  flex: 1;
+}
+
+.header__buttons {
+  display: flex;
+  flex: 1;
+  flex-direction: row-reverse;
+}

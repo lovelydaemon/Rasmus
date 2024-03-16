@@ -1,0 +1,20 @@
+.toolbar {
+  display: flex;
+  float: right;
+}
+
+.toolbar__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: $color-lightGray;
+  cursor: pointer;
+  padding: 3px;
+  transition: color 0.3s ease-out;
+
+  &:hover {
+    color: $color-white;
+  }
+}

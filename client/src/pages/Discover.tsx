@@ -1,7 +1,8 @@
+import { useState } from 'react';
+
 import { ISearchData } from '@/app/types';
 import Channel from '@/components/Channel/Channel';
 import Search from '@/components/Search/Search';
-import { useState } from 'react';
 
 export default function Discover() {
   const [data, setData] = useState<ISearchData | null>(null);

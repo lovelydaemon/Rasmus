@@ -1,0 +1,51 @@
+.post {
+  border-radius: 4px;
+  padding: 16px;
+}
+
+.post__content {
+  font-size: 13px;
+  line-height: 18px;
+  word-break: break-word;
+  color: #a3a3a3;
+}
+
+.post__header {
+  display: inline-block;
+  width: 70%;
+}
+
+.post__title {
+  font-size: 16px;
+  font-weight: 700;
+
+  &:link,
+  &:visited {
+    color: white;
+  }
+}
+
+.post__info {
+  margin-top: 8px;
+}
+
+.post__link {
+  &:link,
+  &:visited {
+    color: #a3a3a3;
+  }
+
+  &:hover,
+  &:active {
+    color: white;
+    text-decoration: underline;
+  }
+}
+
+.post__description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-top: 8px;
+}
